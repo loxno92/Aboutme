@@ -36,6 +36,7 @@ header {
     z-index: 100;
 }
 
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -43,25 +44,38 @@ header {
     padding: 0 20px;
 }
 
-nav ul {
+.logo {
+    font-size: 1.5em; /* Примерно больший шрифт, чем у навигации */
+    font-weight: bold;
+    color: #fff; /* Или другой цвет, подходящий к темной теме */
+    text-decoration: none; /* Убираем подчеркивание, если логотип - ссылка */
+    /* Дополнительные стили по вашему вкусу */
+}
+
+.logo img {
+    height: 40px; /* Примерная высота логотипа */
+    /* Добавьте отступы, если необходимо */
+}
+.menu-toggle {
+    display: none;
+}
+
+.mobile-nav ul {
     display: flex;
     justify-content: center;
 }
 
-nav li {
+.mobile-nav li {
     margin: 0 15px;
 }
 
-nav a {
+.mobile-nav a {
     display: block;
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-nav a:hover {
-    background-color: #333;
-}
 
 /* Секция Hero */
 .hero {
@@ -215,13 +229,16 @@ footer {
 }
 
 /* Адаптивность (пример) */
+/* ... ваши десктопные стили ... */
+
+/* Стили для мобильных */
 @media (max-width: 768px) {
     .container {
         padding: 0 15px;
     }
 
     nav ul {
-        display: block; /* Вертикальное расположение пунктов меню */
+        display: block; /* Вертикальное расположение пунктов меню на мобильных */
         text-align: center;
     }
 
@@ -232,37 +249,48 @@ footer {
     nav a {
         display: block;
         padding: 10px;
-        border-bottom: 1px solid #333; /* Разделитель между пунктами */
+        border-bottom: 1px solid #333;
     }
 
     .menu-toggle {
         display: block; /* Показываем кнопку меню на мобильных */
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-    }
-
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #fff;
-        margin: 5px 0;
-        transition: transform 0.3s ease;
+        /* ... другие стили для menu-toggle ... */
     }
 
     .mobile-nav {
         display: none; /* Скрываем меню по умолчанию на мобильных */
-        background-color: #222;
-        position: absolute;
-        top: 100%; /* Располагаем под шапкой */
-        left: 0;
-        width: 100%;
-        text-align: center;
+        /* ... другие стили для mobile-nav ... */
     }
 
     .mobile-nav.open {
         display: block; /* Показываем меню при клике на кнопку */
+    }
+}
+
+/* Стили для десктопа (убедитесь, что они не переопределяются медиа-запросом) */
+@media (min-width: 769px) { /* Или другое значение, больше вашего max-width */
+    .menu-toggle {
+        display: none; /* Скрываем кнопку меню на десктопе */
+    }
+
+    .mobile-nav {
+        display: block; /* Показываем меню на десктопе */
+    }
+
+    .mobile-nav ul {
+        display: flex; /* Горизонтальное расположение пунктов меню на десктопе */
+        justify-content: center;
+    }
+
+    .mobile-nav li {
+        margin: 0 15px;
+    }
+
+    .mobile-nav a {
+        display: block;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        border-bottom: none; /* Убираем нижнюю границу с мобильных */
     }
 }
