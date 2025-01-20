@@ -36,6 +36,13 @@ header {
     z-index: 100;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
@@ -209,17 +216,53 @@ footer {
 
 /* Адаптивность (пример) */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
     nav ul {
-        flex-direction: column;
+        display: block; /* Вертикальное расположение пунктов меню */
         text-align: center;
     }
+
     nav li {
-        margin: 10px 0;
+        margin: 0;
     }
-    .hero {
-        padding: 80px 20px;
+
+    nav a {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #333; /* Разделитель между пунктами */
     }
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+
+    .menu-toggle {
+        display: block; /* Показываем кнопку меню на мобильных */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px 0;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-nav {
+        display: none; /* Скрываем меню по умолчанию на мобильных */
+        background-color: #222;
+        position: absolute;
+        top: 100%; /* Располагаем под шапкой */
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-nav.open {
+        display: block; /* Показываем меню при клике на кнопку */
     }
 }
