@@ -29,7 +29,7 @@ ul {
 
 /* Шапка */
 header {
-    background-color: #222;
+    background-color: rgba(34, 34, 34, 0.8); /* Пример с альфа 0.8 */
     padding: 15px 0;
     position: sticky;
     top: 0;
